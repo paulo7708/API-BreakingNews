@@ -3,7 +3,10 @@ const userRoute = require('./src/routes/user.route')
 
 const app = express();
 
-app.use("/soma", userRoute)
+const port = 3000;
+
+app.use(express.json())
+app.use("/user", userRoute)
 //ROTA
   // Metodo HTTP - CRUD (CREAT, READ, UPDATE, DELETE)
     // Get - Pega info
@@ -15,4 +18,4 @@ app.use("/soma", userRoute)
   // Name - Um identificador da rota
   // Function (Callback)
 
-app.listen(3000);
+app.listen(port, () => console.log(`Servidor rodando na porta: ${port}`));
