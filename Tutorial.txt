@@ -1,0 +1,16 @@
+Iniciar repositorio Git
+
+$ npm init -y
+
+no json
+"scripts": {
+    "start": "node index"
+  },
+
+npm start
+
+npm i express
+
+$ npm i nodemon
+
+criar .gitignore
