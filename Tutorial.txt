@@ -16,4 +16,6 @@ npm i nodemon
 
 criar .gitignore
 
+npm i mongoose
+
 
