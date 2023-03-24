@@ -5,6 +5,8 @@ route.post("/", userControler.create);
 
 route.get("/", userControler.findAll);
 
-route.get("/:id", userControler.findById)
+route.get("/:id", userControler.findById);
+
+route.patch("/:id", userControler.update);
 
 module.exports = route;
