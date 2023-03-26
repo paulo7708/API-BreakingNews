@@ -1,13 +1,10 @@
 import mongoose from "mongoose";
 
-const serverUrl =
-  "mongodb+srv://cybber:raptorv2@cluster0.0moesgo.mongodb.net/?retryWrites=true&w=majority";
-
 const connectDatabase = () => {
   console.log("Wait connecting to the database");
 
   mongoose
-    .connect(serverUrl, {
+    .connect( process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

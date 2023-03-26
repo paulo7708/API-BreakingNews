@@ -19,3 +19,5 @@ criar .gitignore
 npm i mongoose
 
 npm i bcrypt
+
+npm i dotenv
