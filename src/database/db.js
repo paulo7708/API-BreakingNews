@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
 const serverUrl =
   "mongodb+srv://cybber:raptorv2@cluster0.0moesgo.mongodb.net/?retryWrites=true&w=majority";
 
@@ -14,4 +15,4 @@ const connectDatabase = () => {
     .catch((error) => console.log(error));
 };
 
-module.exports = connectDatabase;
+export default connectDatabase ;
