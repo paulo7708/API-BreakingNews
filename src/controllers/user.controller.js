@@ -1,84 +1,102 @@
 const userService = require("../services/user.service");
 
 const create = async (req, res) => {
-  const { name, username, email, password, avatar, background } = req.body;
+  try {
+    const { name, username, email, password, avatar, background } = req.body;
 
-  if (!name || !username || !email || !password || !avatar || !background) {
-    res.status(400).send({ message: "Submit all fields for registration!" });
+    if (!name || !username || !email || !password || !avatar || !background) {
+      res.status(400).send({ message: "Submit all fields for registration!" });
+    }
+
+    const user = await userService.createService(req.body);
+    /* cadastra o user */
+
+    if (!user) {
+      return res.status(400).send({ message: "Error creating User" });
+    }
+
+    res.status(201).send({
+      message: "User created successfully",
+      user: {
+        id: user._id,
+        name,
+        email,
+        avatar,
+        background,
+      },
+    });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
   }
-
-  const user = await userService.createService(req.body);
-
-  if (!user) {
-    return res.status(400).send({ message: "Error creating User" });
-  }
-
-  res.status(201).send({
-    message: "User created successfully",
-    user: {
-      id: user._id,
-      name,
-      email,
-      avatar,
-      background,
-    },
-  });
 };
 
 const findAll = async (req, res) => {
-  const users = await userService.findAllService();
+  try {
+    const users = await userService.findAllService();
 
-  if (users.lenght === 0) {
-    return res.status(400).send({ message: "Não há usuarios cadastrados" });
+    if (users.lenght === 0) {
+      return res.status(400).send({ message: "Não há usuarios cadastrados" });
+    }
+    res.send(users);
+  } catch (err) {
+    res.status(500).send({ message: err.message });
   }
-  res.send(users);
 };
 
 const findById = async (req, res) => {
-
-  /* if (!mongoose.Types.ObjectId.isValid(id)) {
+  try {
+    /* if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({ message: "Invalid Id" });
   } */
-  /* alt + shift + a comment */
-  const user = req.user;
+    /* alt + shift + a comment */
+    const user = req.user;
 
-  /* if (!user) {
+    /* if (!user) {
     return res.status(400).send({ message: "user not found" });
   } */
 
-  res.send(user);
+    res.send(user);
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
 };
 
 const update = async (req, res) => {
-  const { name, username, email, password, avatar, background } = req.body;
+  try {
+    const { name, username, email, password, avatar, background } = req.body;
 
-  if (!name && !username && !email && !password && !avatar && !background) {
-    res.status(400).send({ message: "Submit at least one field for update!" });
-  }
+    if (!name && !username && !email && !password && !avatar && !background) {
+      res
+        .status(400)
+        .send({ message: "Submit at least one field for update!" });
+    }
 
-  const {id, user} = req;
+    const { id, user } = req;
 
-  /* if (!mongoose.Types.ObjectId.isValid(id)) {
+    /* if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({ message: "Invalid Id" });
   } */
 
-  /* const user = await userService.findByIdService(id); */
+    /* const user = await userService.findByIdService(id); */
 
-  /* if (!user) {
+    /* if (!user) {
     return res.status(400).send({ message: "user not found" });
   } */
 
-  await userService.updateService(
-    id,
-    name,
-    username,
-    email,
-    password,
-    avatar,
-    background
-  );
+    await userService.updateService(
+      id,
+      name,
+      username,
+      email,
+      password,
+      avatar,
+      background
+    );
 
-  res.send({ message: "User successfully updated!" });
+    res.send({ message: "User successfully updated!" });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
 };
 
 module.exports = { create, findAll, findById, update };
