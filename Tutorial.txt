@@ -21,3 +21,5 @@ npm i mongoose
 npm i bcrypt
 
 npm i dotenv
+
+rota > controller > service > BD
