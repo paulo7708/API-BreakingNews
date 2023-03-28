@@ -1,0 +1,50 @@
+Criar repositorio Git
+
+Iniciar repositorio Git
+
+npm init -y
+
+npm start
+
+npm i express
+
+O express nos possibilita criar nossa API de uma forma mais prática, menos verboso etc.
+
+npm i nodemon
+
+Nodemon facilita nossa vida, por ficar escutando e atualizando as alterações feitas sem a nessecidade de parar o servidor (ctrl + c) e rodar novamente ( npm run dev).
+
+No package.json
+"start": "node index",
+"dev": "nodemon index"
+
+Para rodar no seu terminal basta rodar:
+npm run dev
+
+criar .gitignore
+
+npm i mongoose
+
+Mongoose vai facilitar nosso acesso ao MongoDB.
+
+
+npm i bcrypt
+
+Ultilizado para criptografar a senha, de modo que nem o usuario nem o cliente vejam as senhas cadastradas.
+
+
+npm i dotenv
+
+Variáveis de ambiente é algo extremamente necessário para um projeto back-end para guardar informações senciveis da nossa aplicação.
+
+Arquitetura
+Utilizaremos Arquitetura monolitica
+
+Basicamente
+index/app > rota > controller > service > BD
+
+JWT - Json Web Token
+
+Para guardar a sessao do usuario e nosso cliente saber qual usuario está nessa sessao.
+
+npm i jsonwebtoken
