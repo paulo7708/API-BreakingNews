@@ -1,7 +1,5 @@
 Criar repositorio Git
 
-Iniciar repositorio Git
-
 npm init -y
 
 npm start
