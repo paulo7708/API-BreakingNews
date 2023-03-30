@@ -34,3 +34,16 @@ export const validUser = async (req, res, next) => {
   }
 };
 
+/* export const validNews = async (req, res, next) => {
+  try {
+    const { title, text, banner } = req.body;
+
+    if (!title || !banner || !text) {
+      res.status(500).send({ message: "Submit all fields for registration!" });
+    }
+    next();
+
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+} */

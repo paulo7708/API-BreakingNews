@@ -37,10 +37,7 @@ export const authMiddleware = (req, res, next) => {
 
       req.userId = user.id;
       return next();
-    });
-
-    
-
+    }); 
     
   } catch (err) {
     res.status(500).send({ message: err.message });
