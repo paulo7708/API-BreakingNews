@@ -50,7 +50,6 @@ const findAll = async (req, res) => {
     }
 
     const news = await findAllService(offset, limit);
-    console.log(limit, offset);
     const total = await countNews();
     const currentUrl = req.baseUrl;
 
