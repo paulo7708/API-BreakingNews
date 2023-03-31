@@ -1,69 +1,71 @@
-<h1>Comandos para rodar a Aplicação </h1> ✨
+<h1>Comandos para rodar a Aplicação ✨</h1>
 
-.env
->É necessario adicionar a URL do servidor MongoDB em
-MONGODB_URI = "URL aqui"
+### .env
+É necessario adicionar a URL do servidor MongoDB em
+><p>MONGODB_URI = "URL aqui"</p>
 
-E o Secret JWT,
-SECRET_JWT = "Sua chave aqui"
+Assim como o Secret JWT
+><p>SECRET_JWT = "Sua chave aqui"</p>
 
 Renomear o arquivo
-de .env.example para .env
+><p>de .env.example para .env</p>
+<br>
 
-npm start
-Para rodar o projeto na porta 3000;
+### npm start
+><p>Para rodar o projeto na porta 3000;</p>
 
-npm run dev
-Para adicionar o Listen do Nodemon
+### npm run dev
+><p>Para adicionar o Listen do Nodemon</p>
 
-npm install
-Para baixar as dependencias do projeto
+### npm install
+><p>Para baixar as dependencias do projeto</p>
 
+<br><hr>
 
+##Tecnologias utilizadas
+<hr>
 
-Tecnologias utilizadas
-
-Express
+### Express
 
 O express nos possibilita criar nossa API de uma forma mais prática, menos verboso etc.
+<br><hr>
 
-Nodemon(dependência de desenvolvimento)
+### Nodemon(dependência de desenvolvimento)
 
 Nodemon facilita nossa vida, por ficar escutando e atualizando as alterações feitas sem a nessecidade de parar o servidor (ctrl + c) e rodar novamente ( npm run dev).
+<br>
 
 No package.json
 "start": "node index",
 "dev": "nodemon index"
+<br><hr>
 
-Para rodar no seu terminal basta rodar:
-npm run dev
-
-
-Mongoose
+### Mongoose
 
 Mongoose vai facilitar nosso acesso ao MongoDB.
+<br><hr>
 
-
-Bcrypt
+### Bcrypt
 
 Ultilizado para criptografar a senha, de modo que nem o usuario nem o cliente vejam as senhas cadastradas.
+<br><hr>
 
-
-Dotenv
+### Dotenv
 
 Variáveis de ambiente é algo extremamente necessário para um projeto back-end para guardar informações senciveis da nossa aplicação.
+<br><hr>
 
-Arquitetura
+### Arquitetura
 Utilizaremos Arquitetura monolitica
 
 Basicamente
 index/app > rota > controller > service > BD
+<br><hr>
 
-JWT - Json Web Token
+### JWT - Json Web Token
 
 Para guardar a sessao do usuario e nosso cliente saber qual usuario está nessa sessao.
+<br><hr>
 
-
-
-Swagger-ui-express
+### Swagger-ui-express
 Para fazer nosso Deploy
