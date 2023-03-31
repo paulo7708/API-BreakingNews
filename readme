@@ -46,3 +46,5 @@ JWT - Json Web Token
 Para guardar a sessao do usuario e nosso cliente saber qual usuario está nessa sessao.
 
 npm i jsonwebtoken
+
+npm i swagger-ui-express

@@ -5,7 +5,7 @@
   "description": "API for SPA Breaking News",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "node --experimental-json-modules src/index",
     "dev": "nodemon index"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "swagger-ui-express": "^4.6.2"
   }
 }
