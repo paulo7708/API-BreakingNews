@@ -1,4 +1,4 @@
-<h1>Comandos para rodar a Aplicação ✨</h1>
+<h1>Instruções para rodar a Aplicação ✨</h1>
 
 ### .env
 É necessario adicionar a URL do servidor MongoDB em
@@ -10,6 +10,7 @@ Assim como o Secret JWT
 Renomear o arquivo
 ><p>de .env.example para .env</p>
 <br>
+<h2> Comandos de terminal 🚀</h2>
 
 ### npm start
 ><p>Para rodar o projeto na porta 3000;</p>
@@ -20,10 +21,10 @@ Renomear o arquivo
 ### npm install
 ><p>Para baixar as dependencias do projeto</p>
 
-<br><hr>
+<br><br>
 
-##Tecnologias utilizadas
-<hr>
+<h2>Tecnologias utilizadas 🔥</h2>
+
 
 ### Express
 
