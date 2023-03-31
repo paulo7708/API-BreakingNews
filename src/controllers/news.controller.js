@@ -9,7 +9,9 @@ import {
   updateService,
   eraseService,
   likeNewsService,
-  deleteNewsService,
+  deleteLikeService,
+  addCommentService,
+  deleteCommentService,
 } from "../services/news.service.js";
 
 const create = async (req, res) => {
@@ -231,22 +233,67 @@ const erase = async (req, res) => {
 
 const likeNews = async (req, res) => {
   try {
-    const { id } = req.params
-    const userId = req.userId
+    const { id } = req.params;
+    const userId = req.userId;
 
-    const newsLiked = await likeNewsService(id, userId)
-    
-    if(!newsLiked){
-      await deleteNewsService(id, userId);
-      return res.status(200).send({message: "like successfully deleted!"})
+    const newsLiked = await likeNewsService(id, userId);
+
+    if (!newsLiked) {
+      await deleteLikeService(id, userId);
+      return res.status(200).send({ message: "like successfully deleted!" });
     }
 
-    res.send({message: "Like done successfully"})
-
+    res.send({ message: "Like done successfully" });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
-}
+};
+
+const addComment = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userId = req.userId;
+    const { comment } = req.body;
+
+    if (!comment) {
+      return res.status(400).send({ message: "Write a message to comment!" });
+    }
+
+    await addCommentService(id, userId, comment);
+    res.send({ message: "Comment done successfully" });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+const deleteComment = async (req, res) => {
+  try {
+    const { idNews, idComment } = req.params;
+    const userId = req.userId;
+
+    const commentDeleted = await deleteCommentService(
+      idNews,
+      idComment,
+      userId
+    );
+
+    const commentFinder = commentDeleted.comments.find(
+      (comment) => comment.idComment === idComment
+    );
+
+    if (!commentFinder) {
+      return res.status(404).send({ message: "Comment not found" });
+    }
+
+    if (commentDeleted.comments.userId !== userId) {
+      return res.status(400).send({ message: "You can't delete this comment" });
+    }
+
+    res.send({ message: "Comment successfully removed" });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
 
 export {
   create,
@@ -258,4 +305,6 @@ export {
   update,
   erase,
   likeNews,
+  addComment,
+  deleteComment,
 };
