@@ -9,9 +9,8 @@
     "version": "1.0.0"
   },
   "servers": [
-
     {
-      "url": "https://api-breakingnews.onrender.com",
+      "url": "https://api-breakingnews-aihx.onrender.com",
       "description": "Render Server"
     },
     {
