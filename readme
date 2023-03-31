@@ -1,7 +1,7 @@
-Comandos para rodar a Aplicação 
+<h1>Comandos para rodar a Aplicação </h1> ✨
 
 .env
-É necessario adicionar a URL do servidor MongoDB em
+>É necessario adicionar a URL do servidor MongoDB em
 MONGODB_URI = "URL aqui"
 
 E o Secret JWT,
